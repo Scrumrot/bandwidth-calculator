@@ -1,0 +1,214 @@
+$columns: 12;
+$padding: 10px;
+$xsMin: 480px;
+$xsMax: 767px;
+$smMin: 768px;
+$smMax: 991px;
+$mdMin: 992px;
+$mdMax: 1199px;
+$lgMin: 1200px;
+$lgMax: 1899px;
+$xlMin: 1900px;
+
+.flex_page {
+  @include flex-col-props;
+  flex: 1 0 100%;
+  width: 100%;
+  max-width: 100%;
+  min-height: 100%;
+}
+
+.display_flex {
+  display: flex;
+}
+.flex_row {
+  margin-left: -5px;
+  margin-right: -5px;
+  min-width: 100%;
+}
+.flex_col {
+  min-height: 1px;
+  padding: 0 5px;
+}
+//.flex_col > * {
+//  flex: 1 1 auto;
+//}
+.flex_children.both > * {
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+.flex_children.grow > * {
+  flex-grow: 1;
+  flex-shrink: 0;
+}
+.flex_children.shrink > * {
+  flex-grow: 0;
+  flex-shrink: 1;
+}
+.flush_cols {
+  > .flex_col {
+    padding: 0;
+  }
+}
+.flush_cols.flex_col {
+  padding: 0;
+}
+.flush_row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+// flex-direction establishes the main-axis, thus defining the direction flex items are placed in the flex container
+.dir_column {
+  flex-direction: column;
+}
+.dir_column-reverse {
+  flex-direction: column-reverse;
+}
+
+.dir_row {
+  flex-direction: row;
+}
+
+.dir_row-reverse {
+  flex-direction: row-reverse;
+}
+
+// flex-wrap dictates how flex items will all try to fit onto one line.
+.wrap_wrap {
+  flex-wrap: wrap;
+}
+.wrap_nowrap {
+  flex-wrap: nowrap;
+}
+.wrap_reverse {
+  flex-wrap: wrap-reverse;
+}
+
+// justify-content defines the alignment along the main axis
+// ie. flex-direction: row === X axis thus justify-content: center
+// will align the content to the center of the X axis.
+.justify_start {
+  justify-content: flex-start;
+}
+
+.justify_end {
+  justify-content: flex-end;
+}
+
+.justify_center {
+  justify-content: center;
+}
+.justify_between {
+  justify-content: space-between;
+}
+.justify_around {
+  justify-content: space-around;
+}
+.justify_evenly {
+  justify-content: space-evenly;
+}
+.justify_stretch {
+  justify-content: stretch;
+}
+
+// align-items defines the default behaviour for how flex items are laid out along the cross axis on the current line
+// ie. flex-direction: row === X axis thus align-items: center
+// will align the content to the center of the Y axis.
+.items_start {
+  align-items: flex-start;
+}
+
+.items_end {
+  align-items: flex-end;
+}
+
+.items_center {
+  align-items: center;
+}
+.items_stretch {
+  align-items: stretch;
+}
+.items_baseline {
+  align-items: baseline;
+}
+
+// align-content aligns a flex container's lines within when there is extra space in the cross-axis, similar to how
+// justify-content aligns individual items within the main-axis.
+//
+//Note: this property has no effect when there is only one line of flex items.
+.content_start {
+  align-content: flex-start;
+}
+
+.content_end {
+  align-content: flex-end;
+}
+
+.content_center {
+  align-content: center;
+}
+.content_between {
+  align-content: space-between;
+}
+.content_around {
+  align-content: space-around;
+}
+.content_evenly {
+  align-content: space-evenly;
+}
+.content_stretch {
+  align-content: stretch;
+}
+
+@mixin col-x-list($targetMq) {
+  @for $i from 1 through $columns {
+    $percent: ($i / $columns) * 100%;
+    .flex-col-#{$targetMq}-#{$i} {
+      //width: $percent;
+      flex-basis: $percent !important;
+      margin-bottom: 0;
+    }
+  }
+}
+
+@mixin col-x-list-space-around($targetMq) {
+  @for $i from 1 through $columns {
+    $percent: ($i / $columns) * 100%;
+    .flex-col-#{$targetMq}-#{$i}.space {
+      flex-basis: calc(#{$percent} - #{$padding}) !important;
+      margin-bottom: 0;
+    }
+  }
+}
+
+@media (min-width: $xsMin) {
+  @include col-x-list("xs");
+  @include col-x-list-space-around("xs");
+}
+
+@media (min-width: $smMin) {
+  @include col-x-list("sm");
+  @include col-x-list-space-around("sm");
+}
+
+@media (min-width: $mdMin) {
+  @include col-x-list("md");
+  @include col-x-list-space-around("md");
+}
+
+@media (min-width: $lgMin) {
+  @include col-x-list("lg");
+  @include col-x-list-space-around("lg");
+}
+
+@media (min-width: $xlMin) {
+  @include col-x-list("xl");
+  @include col-x-list-space-around("xl");
+}
+
+@media (max-width: $smMin) {
+  .flex_col :global(.form-group) {
+    margin-bottom: 0;
+  }
+}
