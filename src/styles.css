@@ -2,6 +2,176 @@
   font-family: sans-serif;
   text-align: center;
 }
+.bc_icon {
+  fill: gray;
+  transition: fill 300ms ease;
+}
+.active_toggle.active .orn_vc_path {
+  animation: ornVCPath cubic-bezier(0.39, 0.575, 0.565, 1) 2000ms;
+  animation-iteration-count: infinite;
+}
+
+@keyframes ornVCPath {
+  0% {
+    fill: #22419a;
+  }
+  50% {
+    fill: red;
+  }
+  100% {
+    fill: #22419a;
+  }
+}
+
+.orn_quality_icon {
+  width: 20px;
+}
+.orn_quality_icon g {
+  transition: fill 600ms ease-out;
+}
+.btn-primary .orn_quality_icon g {
+  fill: #fff;
+}
+.btn-default .orn_quality_icon g {
+  fill: gray;
+}
+.formRow {
+  margin: 0 0px 10px;
+}
+.formBarRow {
+  padding: 0 10px;
+  margin: 0 0px 10px;
+}
+.formField {
+  border: 1px solid #22419a;
+  border-radius: 5px;
+  position: relative;
+  margin: 10px 10px;
+  padding: 20px 10px 10px;
+}
+.formField .active_toggle label {
+  color: gray;
+  transition: color 300ms ease;
+  align-self: center;
+}
+.formField .active_toggle:hover .bc_icon {
+  fill: #00ab6f;
+  /* #8499d6; */
+}
+.formField .active_toggle:hover label {
+  color: #00ab6f;
+}
+
+.formField .active_toggle.active:hover .bc_icon {
+  fill: #8499d6;
+  /* #8499d6; */
+}
+.formField .active_toggle.active:hover label {
+  color: #8499d6;
+}
+
+.formField .active_toggle + .input_body {
+  transition: opacity 300ms ease;
+  opacity: 1;
+}
+.formField .active_toggle.active + .input_body {
+  transition: opacity 300ms ease;
+  opacity: 1;
+}
+.number_of_users_wrapper {
+  margin: 20px 0 !important;
+  overflow: hidden;
+  border: 1px solid #22419a;
+  border-radius: 5px;
+  transition: border 300ms ease;
+}
+.orn_quality_buttons_wrapper {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.orn_input {
+  border-color: #22419a;
+  padding: 5px;
+  border-left: 1px solid #22419a;
+  border-right: 1px solid #22419a;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+}
+.orn_button {
+  padding: 5px;
+  margin: 0;
+  border: 0px;
+  text-align: center;
+}
+.orn_button.btn.btn-default {
+  color: #22419a;
+  background: #ffffff;
+}
+.orn_button.btn.btn-primary {
+  color: white;
+  background: #22419a;
+}
+/* DIsabled */
+.number_of_users_wrapper.disabled {
+  border: 1px solid gray;
+}
+.orn_button.btn:disabled,
+.orn_input:disabled {
+  color: gray;
+  background: #ebebeb;
+  cursor: not-allowed;
+}
+.orn_input:disabled {
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+}
+.orn_button_group {
+  border-radius: 5px;
+  border: 1px solid #22419a;
+  overflow: hidden;
+}
+.orn_progress_wrapper {
+  border: 1px solid#22419a;
+  border-radius: 5px;
+}
+.orn_progress_bar {
+  background: #22419a;
+  color: white;
+  transition: flex-basis cubic-bezier(0.39, 0.575, 0.565, 1) 500ms;
+}
+.orn_progress_bar_inner {
+  padding: 5px 10px;
+  text-align: center;
+  /* min-height: 40px; */
+  white-space: nowrap;
+}
+.orn_type_name {
+  text-align: center;
+}
+.orn_type_wrapper {
+  margin-top: 10px;
+  background: #ffffff;
+  text-align: center;
+  border-radius: 5px;
+  border: 1px solid #22419a;
+}
+.orn_type_name {
+  flex: 1 0;
+  margin: 0;
+  padding: 10px;
+  color: #22419a;
+}
+
+.formField .active_toggle.active .bc_icon {
+  fill: #22419a;
+}
+.formField .active_toggle.active label {
+  color: #22419a;
+}
 .bc_img {
   height: 100px;
   width: 100px;
@@ -32,6 +202,7 @@
 .bc_streamingVideo {
   background-image: url(https://1diz1373d2u3i3cy42n9rz11-wpengine.netdna-ssl.com/wp-content/uploads/2018/08/icon-1-06-100x100.png);
 }
+
 .display_flex {
   display: flex;
 }

@@ -1,20 +1,20 @@
-import React from "react";
-import PropTypes from "prop-types";
-import FormGroup from "react-bootstrap/lib/FormGroup";
-import FormControl from "react-bootstrap/lib/FormControl";
-import InputGroup from "react-bootstrap/lib/InputGroup";
-import HelpBlock from "react-bootstrap/lib/HelpBlock";
-import Glyphicon from "react-bootstrap/lib/Glyphicon";
-import Flex from "../Flex/Flex";
-import { flexPropTypes, getFlexProps } from "../Flex/utils";
-import { FaUserPlus, FaUserMinus } from "react-icons/fa";
+import React from 'react';
+import PropTypes from 'prop-types';
+import FormGroup from 'react-bootstrap/lib/FormGroup';
+import FormControl from 'react-bootstrap/lib/FormControl';
+import InputGroup from 'react-bootstrap/lib/InputGroup';
+import HelpBlock from 'react-bootstrap/lib/HelpBlock';
+import Glyphicon from 'react-bootstrap/lib/Glyphicon';
+import Flex from '../Flex/Flex';
+import { flexPropTypes, getFlexProps } from '../Flex/utils';
+import { FaUserPlus, FaUserMinus } from 'react-icons/fa';
 export const dtaMaker = value => {
   const dta = value
     ? value
-        .replace(" ", "")
-        .replace(".", "_")
-        .replace(/[\[\]']+/g, "")
-    : "";
+        .replace(' ', '')
+        .replace('.', '_')
+        .replace(/[\[\]']+/g, '')
+    : '';
   return dta;
 };
 
@@ -23,7 +23,7 @@ const NumberOfUsers = ({
   label,
   tooltip,
   forceString = false,
-  meta: { touched, error, active, visited, dirty },
+  meta: { touched, error, active, visited, dirty, ...restMeta },
   readOnly,
   disabled,
   hasFeedback,
@@ -42,40 +42,40 @@ const NumberOfUsers = ({
   ...rest
 }) => {
   const handleInputChange = handler => (ev = {}) => {
-    const value = ((ev || {}).target || {}).value || "";
+    const _value = ((ev || {}).target || {}).value.trim() || 0;
+    const value = _value;
     if (handleChange) {
-      const result = handleChange(noEmptyString && value === "" ? null : value);
-      if (result === "handled") return;
+      const result = handleChange(noEmptyString && value === '' ? null : value);
+      if (result === 'handled') return;
     }
-    return handler(noEmptyString && value === "" ? null : ev);
+    return handler(noEmptyString && value === '' ? null : ev);
   };
   const beforeAddon = (
-    <InputGroup.Addon>
-      {before}
-      <Flex.Button
-        onClick={() => {
-          if (!isNaN(input.value) && input.value > 1) {
-            handleInputChange(input.value - 1);
-          }
-        }}
-      >
-        <FaUserMinus />
-      </Flex.Button>
-    </InputGroup.Addon>
+    <Flex.Button
+      disabled={disabled}
+      onClick={() => {
+        console.log('input.value (-)', input.value);
+        const value = parseInt(input.value, 10);
+        if (!isNaN(value) && value > 0) {
+          handleInputChange(input.onChange(value - 1));
+        }
+      }}
+    >
+      <FaUserMinus />
+    </Flex.Button>
   );
   const afterAddon = (
-    <InputGroup.Addon>
-      {after}
-      <Flex.Button
-        onClick={() => {
-          if (!isNaN(input.value)) {
-            handleInputChange(input.value + 1);
-          }
-        }}
-      >
-        <FaUserPlus />
-      </Flex.Button>
-    </InputGroup.Addon>
+    <Flex.Button
+      disabled={disabled}
+      onClick={() => {
+        const value = parseInt(input.value, 10);
+        if (!isNaN(value)) {
+          handleInputChange(input.onChange(value + 1));
+        }
+      }}
+    >
+      <FaUserPlus />
+    </Flex.Button>
   );
 
   const formControl = (
@@ -85,29 +85,46 @@ const NumberOfUsers = ({
       {...input}
       onChange={handleInputChange(input.onChange)}
       onBlur={handleInputChange(input.onBlur)}
+      className="orn_input"
     />
   );
   return (
-    <FormGroup validationState={touched && error ? "error" : null} {...rest}>
-      <Flex.X>
-        <InputGroup>
-          {beforeAddon}
-          {formControl}
-          {afterAddon}
-        </InputGroup>
+    <Flex.Y
+      {...rest}
+      wrap="nowrap"
+      style={{ ...rest.style, position: 'relative' }}
+      className={error ? 'error' : undefined}
+    >
+      <Flex.X
+        wrap="nowrap"
+        className={`number_of_users_wrapper${disabled ? ' disabled' : ''}${
+          error ? ' error' : ''
+        }`}
+      >
+        {beforeAddon}
+        {formControl}
+        {afterAddon}
       </Flex.X>
-      {(touched || active || visited || dirty) &&
-        error &&
-        !hideHelpText && (
-          <HelpBlock
-            name={`error-${dtaMaker(input.name)}`}
-            data-test={`error-${dtaMaker(input.name)}`}
-            key="formControlHelpBlock"
-          >
-            {error}
-          </HelpBlock>
-        )}
-    </FormGroup>
+      {error && (
+        <HelpBlock
+          name={`error-${dtaMaker(input.name)}`}
+          data-test={`error-${dtaMaker(input.name)}`}
+          key="formControlHelpBlock"
+          style={{
+            position: 'absolute',
+            bottom: '-5px',
+            alignSelf: 'center',
+            zIndex: 10,
+            textAlign: 'center',
+            width: '100%',
+            color: 'red',
+            // transform-origin: top;
+          }}
+        >
+          {error}
+        </HelpBlock>
+      )}
+    </Flex.Y>
   );
 };
 

@@ -1,19 +1,19 @@
-import React, { Component } from "react";
-import Button from "react-bootstrap/lib/Button";
-import ButtonGroup from "react-bootstrap/lib/ButtonGroup";
-import PropTypes from "prop-types";
-import NumberofUsers from "../Inputs/NumberOfUsers";
-import QualityButtons from "../Inputs/QualityButtons";
-import { flexPropTypes, getFlexProps } from "./utils";
-import { OPTIONS } from "./utils";
+import React, { Component } from 'react';
+import Button from 'react-bootstrap/lib/Button';
+import ButtonGroup from 'react-bootstrap/lib/ButtonGroup';
+import PropTypes from 'prop-types';
+import NumberofUsers from '../Inputs/NumberOfUsers';
+import QualityButtons from '../Inputs/QualityButtons';
+import { flexPropTypes, getFlexProps } from './utils';
+import { OPTIONS } from './utils';
 
 export default class Flex extends Component {
   static propTypes = {
     children: PropTypes.any,
     className: PropTypes.string,
     style: PropTypes.object,
-    applyFlexChildren: PropTypes.oneOf(["both", "grow", "shrink"]),
-    styleType: PropTypes.oneOf(["column", "row", "none"]),
+    applyFlexChildren: PropTypes.oneOf(['both', 'grow', 'shrink']),
+    styleType: PropTypes.oneOf(['column', 'row', 'none']),
     xs: PropTypes.oneOf(OPTIONS.colNumbers),
     sm: PropTypes.oneOf(OPTIONS.colNumbers),
     md: PropTypes.oneOf(OPTIONS.colNumbers),
@@ -23,56 +23,56 @@ export default class Flex extends Component {
     shrink: PropTypes.number,
     basis: PropTypes.string,
     direction: PropTypes.oneOf([
-      "column",
-      "column-reverse",
-      "row",
-      "row-reverse"
+      'column',
+      'column-reverse',
+      'row',
+      'row-reverse',
     ]),
-    wrap: PropTypes.oneOf(["wrap", "nowrap", "reverse"]),
+    wrap: PropTypes.oneOf(['wrap', 'nowrap', 'reverse']),
     justify: PropTypes.oneOf([
-      "around",
-      "between",
-      "center",
-      "end",
-      "evenly",
-      "start",
-      "stretch"
+      'around',
+      'between',
+      'center',
+      'end',
+      'evenly',
+      'start',
+      'stretch',
     ]),
     alignItems: PropTypes.oneOf([
-      "baseline",
-      "center",
-      "end",
-      "start",
-      "stretch"
+      'baseline',
+      'center',
+      'end',
+      'start',
+      'stretch',
     ]),
 
     alignContent: PropTypes.oneOf([
-      "around",
-      "between",
-      "center",
-      "end",
-      "evenly",
-      "start",
-      "stretch"
+      'around',
+      'between',
+      'center',
+      'end',
+      'evenly',
+      'start',
+      'stretch',
     ]),
     order: PropTypes.number,
     alignSelf: PropTypes.oneOf([
-      "baseline",
-      "center",
-      "end",
-      "start",
-      "stretch"
-    ])
+      'baseline',
+      'center',
+      'end',
+      'start',
+      'stretch',
+    ]),
   };
   static defaultProps = {
-    justify: "start",
-    alignItems: "stretch",
-    alignContent: "stretch",
-    direction: "row",
+    justify: 'start',
+    alignItems: 'stretch',
+    alignContent: 'stretch',
+    direction: 'row',
     grow: 1,
     shrink: 1,
-    basis: "auto",
-    wrap: "nowrap"
+    basis: 'auto',
+    wrap: 'nowrap',
   };
 
   get restProps() {
@@ -120,7 +120,7 @@ Flex.Row = props => (
     wrap="wrap"
     grow={1}
     shrink={1}
-    basis={"auto"}
+    basis={'auto'}
     {...props}
   />
 );
@@ -134,7 +134,7 @@ Flex.Col = props => (
     wrap="wrap"
     grow={1}
     shrink={1}
-    basis={"100%"}
+    basis={'100%'}
     applyFlexChildren="both"
     {...props}
   />
@@ -149,7 +149,7 @@ Flex.PageCol = props => (
     wrap="nowrap"
     grow={1}
     shrink={0}
-    basis={"100%"}
+    basis={'100%'}
     applyFlexChildren="both"
     {...props}
   />
@@ -164,7 +164,7 @@ Flex.X = props => (
     wrap="wrap"
     grow={1}
     shrink={1}
-    basis={"auto"}
+    basis={'auto'}
     {...props}
   />
 );
@@ -177,7 +177,7 @@ Flex.Y = props => (
     wrap="nowrap"
     grow={1}
     shrink={1}
-    basis={"auto"}
+    basis={'auto'}
     {...props}
   />
 );
@@ -191,13 +191,28 @@ Flex.Page = props => (
     wrap="nowrap"
     grow={1}
     shrink={0}
-    basis={"auto"}
+    basis={'auto'}
     {...props}
   />
 );
 
-Flex.Button = props => <Button {...getFlexProps({ ...props, grow: 1 })} />;
-Flex.ButtonGroup = props => <ButtonGroup {...getFlexProps(props)} />;
+Flex.Button = props => (
+  <Button
+    {...getFlexProps({
+      grow: 1,
+      justify: 'center',
+      alignItems: 'center',
+      alignContent: 'center',
+      ...props,
+      className: 'orn_button',
+    })}
+  />
+);
+Flex.ButtonGroup = props => (
+  <ButtonGroup
+    {...getFlexProps({ grow: 1, ...props, className: 'orn_button_group' })}
+  />
+);
 //=====================================
 // ^^^ alignItems prop^^^
 // defines the alignment of the children along the cross axis on the current line.
