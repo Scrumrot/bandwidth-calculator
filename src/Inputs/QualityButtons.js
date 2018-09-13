@@ -39,6 +39,9 @@ const QualityButtons = ({
             grow={1}
             basis={`${100 / arr.length}%`}
             order={index}
+            className={`orn_quality_button ${
+              option.value === value ? ' option_active' : ' option_not_active'
+            }`}
             style={{
               transition: `color 300ms cubic-bezier(0.39, 0.575, 0.565, 1), background 300ms cubic-bezier(0.39, 0.575, 0.565, 1)`,
             }}

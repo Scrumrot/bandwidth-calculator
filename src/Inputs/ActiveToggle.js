@@ -42,6 +42,17 @@ const ActiveToggle = ({
       onClick={() => input.onChange(!input.value)}
       className={`active_toggle${!!input.value ? ` active` : ``}`}
     >
+      <Flex className="active_toggle_top_left">
+        <div
+          className="orn_styled_checkbox"
+          onClick={() => input.onChange(!input.value)}
+        />
+        <input
+          type="checkbox"
+          value={input.value}
+          onChange={() => input.onChange(!input.value)}
+        />
+      </Flex>
       <figure className={`bc_img${className ? ` ${className}` : ''}`}>
         {icons[icon]}
       </figure>
@@ -55,7 +66,6 @@ const ActiveToggle = ({
 ActiveToggle.propTypes = {
   label: PropTypes.string.isRequired,
   className: PropTypes.string.isRequired,
-  body: PropTypes.any.isRequired,
   style: PropTypes.object,
   icon: PropTypes.any.isRequired,
   onChange: PropTypes.func,

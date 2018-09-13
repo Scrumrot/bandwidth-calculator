@@ -204,7 +204,9 @@ Flex.Button = props => (
       alignItems: 'center',
       alignContent: 'center',
       ...props,
-      className: 'orn_button',
+      className: props.className
+        ? `${props.className} orn_button`
+        : 'orn_button',
     })}
   />
 );

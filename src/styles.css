@@ -6,7 +6,7 @@
   fill: gray;
   transition: fill 300ms ease;
 }
-.active_toggle.active .orn_vc_path {
+.formField.activeField:hover .orn_vc_path {
   animation: ornVCPath cubic-bezier(0.39, 0.575, 0.565, 1) 2000ms;
   animation-iteration-count: infinite;
 }
@@ -29,9 +29,7 @@
 .orn_quality_icon g {
   transition: fill 600ms ease-out;
 }
-.btn-primary .orn_quality_icon g {
-  fill: #fff;
-}
+
 .btn-default .orn_quality_icon g {
   fill: gray;
 }
@@ -43,31 +41,57 @@
   margin: 0 0px 10px;
 }
 .formField {
-  border: 1px solid #22419a;
+  border: 2px solid gray;
   border-radius: 5px;
   position: relative;
   margin: 10px 10px;
   padding: 20px 10px 10px;
+  cursor: pointer;
+  margin-bottom: 10px !important;
+  background: #ffffff;
 }
+.formField:hover {
+  border: 2px solid #8499d6;
+  /* #8499d6; */
+}
+.formField.activeField {
+  border: 2px solid #22419a;
+}
+
+#root > .App .formField {
+  margin-bottom: 10px !important;
+  background: #ffffff;
+}
+
 .formField .active_toggle label {
   color: gray;
   transition: color 300ms ease;
   align-self: center;
+  cursor: text;
 }
-.formField .active_toggle:hover .bc_icon {
-  fill: #00ab6f;
-  /* #8499d6; */
-}
-.formField .active_toggle:hover label {
-  color: #00ab6f;
-}
-
-.formField .active_toggle.active:hover .bc_icon {
+.formField:hover .active_toggle .bc_icon {
   fill: #8499d6;
   /* #8499d6; */
 }
-.formField .active_toggle.active:hover label {
+.formField:hover .active_toggle label {
   color: #8499d6;
+}
+.formField:hover .active_toggle.active .bc_icon {
+  fill: #22419a;
+  /* cursor: default; */
+  /* #8499d6; */
+}
+/* .bc_img */
+.formField:hover .active_toggle.active label {
+  color: #22419a;
+}
+
+.formField .active_toggle.active .active_toggle_top_left:hover ~ .bc_icon {
+  fill: gray;
+  /* #8499d6; */
+}
+.formField .active_toggle.active .active_toggle_top_left:hover + label {
+  color: gray;
 }
 
 .formField .active_toggle + .input_body {
@@ -81,31 +105,35 @@
 .number_of_users_wrapper {
   margin: 20px 0 !important;
   overflow: hidden;
-  border: 1px solid #22419a;
+  border: 2px solid #22419a;
   border-radius: 5px;
   transition: border 300ms ease;
 }
 .orn_quality_buttons_wrapper {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 20px;
+  right: 20px;
   z-index: 2;
   overflow: hidden;
 }
-
+.orn_quality_button {
+  outline: unset;
+}
 .orn_input {
   border-color: #22419a;
   padding: 5px;
-  border-left: 1px solid #22419a;
-  border-right: 1px solid #22419a;
-  border-top: 1px solid transparent;
-  border-bottom: 1px solid transparent;
+  border-left: 2px solid #22419a;
+  border-right: 2px solid #22419a;
+  border-top: 2px solid transparent;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
 }
 .orn_button {
   padding: 5px;
   margin: 0;
   border: 0px;
   text-align: center;
+  cursor: pointer;
 }
 .orn_button.btn.btn-default {
   color: #22419a;
@@ -115,28 +143,38 @@
   color: white;
   background: #22419a;
 }
+
 /* DIsabled */
 .number_of_users_wrapper.disabled {
-  border: 1px solid gray;
+  border: 2px solid gray;
 }
 .orn_button.btn:disabled,
 .orn_input:disabled {
   color: gray;
   background: #ebebeb;
-  cursor: not-allowed;
+  cursor: pointer;
 }
 .orn_input:disabled {
-  border-left: 1px solid gray;
-  border-right: 1px solid gray;
+  border-left: 2px solid gray;
+  border-right: 2px solid gray;
 }
 .orn_button_group {
   border-radius: 5px;
-  border: 1px solid #22419a;
+  border: 2px solid #22419a;
   overflow: hidden;
 }
+.formField .orn_quality_buttons_wrapper .orn_button_group {
+  border: 2px solid gray;
+  background: #ebebeb;
+}
+.formField.activeField .orn_quality_buttons_wrapper .orn_button_group {
+  border: 2px solid #22419a;
+  background: #22419a;
+}
 .orn_progress_wrapper {
-  border: 1px solid#22419a;
+  border: 2px solid#22419a;
   border-radius: 5px;
+  background: #ffffff;
 }
 .orn_progress_bar {
   background: #22419a;
@@ -157,7 +195,7 @@
   background: #ffffff;
   text-align: center;
   border-radius: 5px;
-  border: 1px solid #22419a;
+  border: 2px solid #22419a;
 }
 .orn_type_name {
   flex: 1 0;
@@ -172,6 +210,237 @@
 .formField .active_toggle.active label {
   color: #22419a;
 }
+.active_toggle_top_left {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 9;
+}
+.active_toggle_top_left input {
+  visibility: hidden;
+  display: none;
+}
+.orn_styled_checkbox {
+  width: 18px;
+  height: 18px;
+  background: gray;
+  /* border: 2px solid gray; */
+  border-radius: 50%;
+  transition: all 300ms ease;
+  /* box-shadow: 0 0 0 1px gray; */
+  box-shadow: 0 0 0px 2px gray, 0 0 0px 10px #ffffff inset;
+}
+.active_toggle.active .orn_styled_checkbox {
+  /* border: 1px solid #22419a; */
+  box-shadow: 0 0 0px 2px #22419a, 0 0 0 3px #ffffff inset;
+  background: #22419a;
+}
+.active_toggle .orn_styled_checkbox:hover {
+  box-shadow: 0 0 0px 2px #8499d6, 0 0 0 5px #ffffff inset;
+  background: #8499d6;
+}
+.formField:hover .active_toggle.active .orn_styled_checkbox {
+  box-shadow: 0 0 0px 2px #22419a, 0 0 0 3px #ffffff inset;
+  background: #22419a;
+}
+.formField .active_toggle.active .orn_styled_checkbox:hover {
+  box-shadow: 0 0 0px 2px gray, 0 0 0 5px #ffffff inset;
+  background: gray;
+}
+.formField .active_toggle.active:hover .orn_styled_checkbox {
+  box-shadow: 0 0 0px 2px gray, 0 0 0 5px #ffffff inset;
+  background: gray;
+}
+
+.formField:hover .active_toggle .orn_styled_checkbox {
+  box-shadow: 0 0 0px 2px #8499d6, 0 0 0 5px #ffffff inset;
+  background: #8499d6;
+}
+
+.formField .orn_button.orn_quality_button {
+  background: #ebebeb;
+}
+.formField .orn_button.orn_quality_button .orn_quality_icon g {
+  fill: gray;
+}
+
+.formField.activeField .orn_quality_button.option_active {
+  background: #22419a;
+}
+.formField.activeField .orn_quality_button.option_active .orn_quality_icon g {
+  fill: #ffffff;
+}
+
+.orn_quality_button.option_active:hover {
+}
+.formField.activeField .orn_quality_button.option_not_active:hover {
+  background: #ffffff;
+}
+.orn_quality_button.option_not_active:hover .orn_quality_icon g {
+  fill: #8499d6;
+}
+.orn_uploadingLargeFiles_anim {
+  /* transition: stroke-width ease 300ms, stroke ease 300ms, fill ease 300ms; */
+}
+.orn_voip_anim_1 {
+}
+.orn_voip_anim_2 {
+}
+.orn_streamingMusic_anim {
+}
+.formField.activeField .orn_arrow_anim {
+  stroke-width: 0;
+  stroke: transparent;
+}
+.formField.activeField:hover .orn_arrow_anim {
+  /* fill: rgba(0, 163, 82, .9); */
+  animation: arrow_anim ease-in-out 4000ms;
+  animation-iteration-count: infinite;
+}
+.formField.activeField:hover .orn_arrow_anim.sun {
+  /* fill: rgba(0, 163, 82, .9); */
+  animation: arrow_anim_sun ease-in-out 4000ms;
+  animation-iteration-count: infinite;
+}
+.formField.activeField:hover .orn_arrow_anim.burn {
+  /* fill: rgba(0, 163, 82, .9); */
+  animation: arrow_anim_burn ease-in-out 4000ms;
+  animation-iteration-count: infinite;
+}
+.formField.activeField:hover .orn_arrow_anim.yellow {
+  /* fill: rgba(0, 163, 82, .9); */
+  animation: arrow_anim_yellow ease-in-out 4000ms;
+  animation-iteration-count: infinite;
+}
+.formField.activeField:hover .orn_arrow_anim.more_stroke {
+  /* fill: rgba(0, 163, 82, .9); */
+  animation: arrow_anim_more_stroke ease-in-out 4000ms;
+  animation-iteration-count: infinite;
+}
+
+.formField.activeField:hover .orn_arrow_anim.second {
+  animation-delay: 500ms;
+}
+.formField.activeField:hover .orn_arrow_anim.third {
+  animation-delay: 1000ms;
+}
+.formField.activeField:hover .orn_arrow_anim.fourth {
+  animation-delay: 1500ms;
+}
+.formField.activeField:hover .orn_arrow_anim.fifth {
+  animation-delay: 2000ms;
+}
+.formField.activeField:hover .orn_arrow_anim.sixth {
+  animation-delay: 2500ms;
+}
+.formField.activeField:hover .orn_arrow_anim.fast {
+  animation-duration: 2000ms;
+}
+
+.formField.activeField:hover .orn_arrow_anim.second.fast {
+  animation-delay: 500ms;
+}
+.formField.activeField:hover .orn_arrow_anim.third.fast {
+  animation-delay: 750ms;
+}
+
+@keyframes arrow_anim {
+  0% {
+    stroke: rgba(0, 163, 82, 0);
+    fill: #22419a;
+    stroke-width: 0;
+  }
+  50% {
+    stroke: rgba(0, 163, 82, 0.9);
+    fill: rgba(0, 163, 82, 1);
+    stroke-width: 1px;
+  }
+  100% {
+    stroke: rgba(0, 163, 82, 0);
+    fill: #22419a;
+    stroke-width: 0;
+  }
+}
+@keyframes arrow_anim_more_stroke {
+  0% {
+    stroke: rgba(0, 163, 82, 0);
+    fill: #22419a;
+    stroke-width: 0;
+  }
+  50% {
+    stroke: rgba(0, 163, 82, 0.4);
+    fill: rgba(0, 163, 82, 1);
+    stroke-width: 7px;
+  }
+  100% {
+    stroke: rgba(0, 163, 82, 0);
+    fill: #22419a;
+    stroke-width: 10px;
+  }
+}
+@keyframes arrow_anim_burn {
+  0% {
+    stroke: rgba(252, 6, 6, 0);
+    fill: #22419a;
+    stroke-width: 0;
+  }
+  50% {
+    stroke: rgba(252, 6, 6, 0.6);
+    fill: rgba(252, 6, 6, 1);
+    stroke-width: 1px;
+  }
+  100% {
+    stroke: rgba(252, 6, 6, 0);
+    fill: #22419a;
+    stroke-width: 0;
+  }
+}
+@keyframes arrow_anim_yellow {
+  0% {
+    stroke: rgba(255, 169, 10, 0);
+    fill: #22419a;
+    stroke-width: 0;
+  }
+  50% {
+    stroke: rgba(255, 169, 10, 0.6);
+    fill: rgba(255, 169, 10, 1);
+    stroke-width: 1px;
+  }
+  100% {
+    stroke: rgba(255, 169, 10, 0.15);
+    fill: #22419a;
+    stroke-width: 0;
+  }
+}
+
+@keyframes arrow_anim_sun {
+  0% {
+    stroke: rgba(255, 169, 10, 0.15);
+    fill: #d3b610;
+    stroke-width: 2px;
+  }
+  25% {
+    stroke: rgba(255, 169, 10, 0.3);
+    fill: #c59b11;
+    stroke-width: 8px;
+  }
+  50% {
+    stroke: rgba(255, 169, 10, 0.2);
+    fill: #d3b610;
+    stroke-width: 4px;
+  }
+  75% {
+    stroke: rgba(255, 169, 10, 0.25);
+    fill: #c59b11;
+    stroke-width: 6px;
+  }
+  100% {
+    stroke: rgba(255, 169, 10, 0.15);
+    fill: #d3b610;
+    stroke-width: 2px;
+  }
+}
+
 .bc_img {
   height: 100px;
   width: 100px;

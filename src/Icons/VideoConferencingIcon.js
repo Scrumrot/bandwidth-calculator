@@ -24,7 +24,7 @@ const VideoConferencingIcon = props => (
       d="M43.55,85.83h.89a2,2,0,0,1,0,4.09c-.63,0-1.27,0-1.9,0a2,2,0,0,1,0-4.09C42.88,85.82,43.21,85.83,43.55,85.83Z"
     />
     <path
-      className="bc_icon"
+      className="bc_icon orn_arrow_anim more_stroke fast"
       d="M50,51.22a11,11,0,1,1,11-11.07A11.08,11.08,0,0,1,50,51.22Zm0-4a7,7,0,1,0-7-7A7,7,0,0,0,50,47.18Z"
     />
   </svg>
