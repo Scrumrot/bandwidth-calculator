@@ -2,6 +2,39 @@
   font-family: sans-serif;
   text-align: center;
 }
+.orn_form_wrapper {
+  /* width: 85%; */
+  margin: auto;
+  font-family: sans-serif;
+  text-align: center;
+  border: 2px solid #22419a;
+  border-radius: 20px;
+  padding: 10px;
+  background: #ebebeb;
+  background: #22419a;
+}
+.orn_form_base {
+  background: #ebebeb;
+  background: #ffffff;
+  width: 100%;
+  height: 50px;
+  border-radius: 10% 25%;
+  border: 2px solid #22419a;
+  overflow: hidden;
+  transform: rotateX(45deg);
+  /* box-shadow: 0px 5px 1px 2px rgba(255,255,255,.7) inset, 0px -7px 5px 1px rgba(155,155,155,.4) inset, 0px -5px 2px -5px rgba(55,55,55,.6) inset ;  */
+}
+.orn_form_base_inner {
+  /* border: 2px solid #22419a; */
+  height: 100%;
+}
+.orn_bandwidth_calculator_form {
+  border: 0px solid #22419a;
+  border-radius: 10px;
+  padding: 5px 0 10px;
+  background: #ffffff;
+  /* box-shadow: 0px 0px 0px 10px #fff; */
+}
 .bc_icon {
   fill: gray;
   transition: fill 300ms ease;
@@ -34,18 +67,23 @@
   fill: gray;
 }
 .formRow {
-  margin: 0 0px 10px;
+  margin: 0 0px 0px;
+}
+.orn_bandwidth_calculator_row_wrapper {
+  padding: 5px 5px 0 5px;
+  /* margin: 0 10px; */
+  /* background: #ffffff; */
 }
 .formBarRow {
   padding: 0 10px;
-  margin: 0 0px 10px;
+  margin: 0 0px 0px;
 }
 .formField {
   border: 2px solid gray;
   border-radius: 5px;
   position: relative;
-  margin: 10px 10px;
-  padding: 20px 10px 10px;
+  margin: 0px 5px 10px;
+  padding: 20px 20px 0px;
   cursor: pointer;
   margin-bottom: 10px !important;
   background: #ffffff;
@@ -143,7 +181,16 @@
   color: white;
   background: #22419a;
 }
-
+.orn_bandwidth_calculator_header_row {
+  padding: 20px;
+  background: #22419a;
+  border-radius: 5px 5px 0px 0px;
+  /* border: 2px solid #22419a; */
+}
+.orn_bandwidth_calculator_header_row .orn_bandwidth_calculator_header {
+  margin: 0;
+  color: #ffffff;
+}
 /* DIsabled */
 .number_of_users_wrapper.disabled {
   border: 2px solid gray;
@@ -187,12 +234,10 @@
   /* min-height: 40px; */
   white-space: nowrap;
 }
-.orn_type_name {
-  text-align: center;
-}
+
 .orn_type_wrapper {
   margin-top: 10px;
-  background: #ffffff;
+  background: #22419a;
   text-align: center;
   border-radius: 5px;
   border: 2px solid #22419a;
@@ -201,7 +246,9 @@
   flex: 1 0;
   margin: 0;
   padding: 10px;
-  color: #22419a;
+  text-align: center;
+  font-size: 3em;
+  color: #fff;
 }
 
 .formField .active_toggle.active .bc_icon {
@@ -291,50 +338,51 @@
 .formField.activeField .orn_arrow_anim {
   stroke-width: 0;
   stroke: transparent;
+  transition: transform 300ms ease;
 }
 .formField.activeField:hover .orn_arrow_anim {
   /* fill: rgba(0, 163, 82, .9); */
-  animation: arrow_anim ease-in-out 4000ms;
+  animation: arrow_anim cubic-bezier(0.39, 0.575, 0.565, 1) 2000ms;
   animation-iteration-count: infinite;
 }
 .formField.activeField:hover .orn_arrow_anim.sun {
   /* fill: rgba(0, 163, 82, .9); */
-  animation: arrow_anim_sun ease-in-out 4000ms;
+  animation: arrow_anim_sun cubic-bezier(0.39, 0.575, 0.565, 1) 2000ms;
   animation-iteration-count: infinite;
 }
 .formField.activeField:hover .orn_arrow_anim.burn {
   /* fill: rgba(0, 163, 82, .9); */
-  animation: arrow_anim_burn ease-in-out 4000ms;
+  animation: arrow_anim_burn cubic-bezier(0.39, 0.575, 0.565, 1) 2000ms;
   animation-iteration-count: infinite;
 }
 .formField.activeField:hover .orn_arrow_anim.yellow {
   /* fill: rgba(0, 163, 82, .9); */
-  animation: arrow_anim_yellow ease-in-out 4000ms;
+  animation: arrow_anim_yellow cubic-bezier(0.39, 0.575, 0.565, 1) 2000ms;
   animation-iteration-count: infinite;
 }
 .formField.activeField:hover .orn_arrow_anim.more_stroke {
   /* fill: rgba(0, 163, 82, .9); */
-  animation: arrow_anim_more_stroke ease-in-out 4000ms;
+  animation: arrow_anim_more_stroke cubic-bezier(0.39, 0.575, 0.565, 1) 4000ms;
   animation-iteration-count: infinite;
 }
 
 .formField.activeField:hover .orn_arrow_anim.second {
-  animation-delay: 500ms;
+  animation-delay: 250ms;
 }
 .formField.activeField:hover .orn_arrow_anim.third {
-  animation-delay: 1000ms;
+  animation-delay: 500ms;
 }
 .formField.activeField:hover .orn_arrow_anim.fourth {
-  animation-delay: 1500ms;
+  animation-delay: 750ms;
 }
 .formField.activeField:hover .orn_arrow_anim.fifth {
-  animation-delay: 2000ms;
+  animation-delay: 1000ms;
 }
 .formField.activeField:hover .orn_arrow_anim.sixth {
-  animation-delay: 2500ms;
+  animation-delay: 1250ms;
 }
 .formField.activeField:hover .orn_arrow_anim.fast {
-  animation-duration: 2000ms;
+  animation-duration: 1500ms;
 }
 
 .formField.activeField:hover .orn_arrow_anim.second.fast {
@@ -346,34 +394,54 @@
 
 @keyframes arrow_anim {
   0% {
-    stroke: rgba(0, 163, 82, 0);
+    stroke: rgba(0, 84, 166, 0);
     fill: #22419a;
     stroke-width: 0;
   }
   50% {
-    stroke: rgba(0, 163, 82, 0.9);
-    fill: rgba(0, 163, 82, 1);
+    stroke: rgba(0, 84, 166, 0.9);
+    fill: #0054a6;
     stroke-width: 1px;
   }
   100% {
-    stroke: rgba(0, 163, 82, 0);
+    stroke: rgba(0, 84, 166, 0);
     fill: #22419a;
     stroke-width: 0;
   }
 }
 @keyframes arrow_anim_more_stroke {
   0% {
-    stroke: rgba(0, 163, 82, 0);
+    stroke: rgba(0, 84, 166, 0);
     fill: #22419a;
     stroke-width: 0;
   }
-  50% {
-    stroke: rgba(0, 163, 82, 0.4);
-    fill: rgba(0, 163, 82, 1);
+  25% {
+    stroke: rgba(0, 84, 166, 0.4);
+    fill: rgba(0, 84, 166, 1);
+    stroke-width: 5px;
+  }
+  35% {
+    stroke: rgba(0, 84, 166, 0.45);
+    fill: #22419a;
     stroke-width: 7px;
   }
+  40% {
+    stroke: rgba(0, 84, 166, 0.45);
+    fill: #22419a;
+    stroke-width: 4px;
+  }
+  50% {
+    stroke: rgba(0, 84, 166, 0.45);
+    fill: #22419a;
+    stroke-width: 8px;
+  }
+  75% {
+    stroke: rgba(0, 84, 166, 0.4);
+    fill: rgba(0, 84, 166, 1);
+    stroke-width: 5px;
+  }
   100% {
-    stroke: rgba(0, 163, 82, 0);
+    stroke: rgba(0, 84, 166, 0);
     fill: #22419a;
     stroke-width: 10px;
   }
@@ -417,27 +485,17 @@
   0% {
     stroke: rgba(255, 169, 10, 0.15);
     fill: #d3b610;
-    stroke-width: 2px;
-  }
-  25% {
-    stroke: rgba(255, 169, 10, 0.3);
-    fill: #c59b11;
-    stroke-width: 8px;
-  }
-  50% {
-    stroke: rgba(255, 169, 10, 0.2);
-    fill: #d3b610;
     stroke-width: 4px;
   }
-  75% {
-    stroke: rgba(255, 169, 10, 0.25);
+  50% {
+    stroke: rgba(255, 169, 10, 0.35);
     fill: #c59b11;
-    stroke-width: 6px;
+    stroke-width: 8px;
   }
   100% {
     stroke: rgba(255, 169, 10, 0.15);
     fill: #d3b610;
-    stroke-width: 2px;
+    stroke-width: 4px;
   }
 }
 

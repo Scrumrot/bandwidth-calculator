@@ -168,8 +168,8 @@ const BandwidthCalculatorForm = ({ onSubmit, validate, classes }) => (
       values,
       ...rest
     }) => (
-      <Flex.Y grow={0}>
-        <Flex.Y grow={0}>
+      <Flex.Y grow={0} className="orn_bandwidth_calculator_form">
+        <Flex.Y grow={0} className="orn_bandwidth_calculator_row_wrapper">
           <Flex.X justify="between" className="formRow">
             <FormField {...rest} {...baseData.videoConferencing} />
             <FormField {...rest} {...baseData.downloadingLargeFiles} />
