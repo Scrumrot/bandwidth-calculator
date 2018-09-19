@@ -236,12 +236,20 @@
 }
 
 .orn_type_wrapper {
-  margin-top: 10px;
+  margin-top: 0px;
   background: #22419a;
   text-align: center;
   border-radius: 5px;
   border: 2px solid #22419a;
 }
+.orn_recommended_service {
+  color: #22419a;
+  padding: 10px;
+  border: 2px solid #22419a;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+
 .orn_type_name {
   flex: 1 0;
   margin: 0;
@@ -249,6 +257,8 @@
   text-align: center;
   font-size: 3em;
   color: #fff;
+  border: 2px solid #fff;
+  border-radius: 2.5px;
 }
 
 .formField .active_toggle.active .bc_icon {
@@ -399,12 +409,12 @@
     stroke-width: 0;
   }
   50% {
-    stroke: rgba(0, 84, 166, 0.9);
-    fill: #0054a6;
-    stroke-width: 1px;
+    stroke: rgba(76, 91, 136, 0.3);
+    fill: rgb(132, 153, 214);
+    stroke-width: 2px;
   }
   100% {
-    stroke: rgba(0, 84, 166, 0);
+    stroke: rgba(5, 111, 218, 0);
     fill: #22419a;
     stroke-width: 0;
   }
@@ -416,34 +426,34 @@
     stroke-width: 0;
   }
   25% {
-    stroke: rgba(0, 84, 166, 0.4);
-    fill: rgba(0, 84, 166, 1);
+    stroke: rgba(76, 91, 136, 0.4);
+    fill: rgb(132, 153, 214);
     stroke-width: 5px;
   }
   35% {
-    stroke: rgba(0, 84, 166, 0.45);
-    fill: #22419a;
+    stroke: rgba(44, 95, 247, 0.45);
+    fill: rgb(132, 153, 214);
     stroke-width: 7px;
   }
   40% {
-    stroke: rgba(0, 84, 166, 0.45);
-    fill: #22419a;
+    stroke: rgba(76, 91, 136, 0.45);
+    fill: rgb(132, 153, 214);
     stroke-width: 4px;
   }
   50% {
-    stroke: rgba(0, 84, 166, 0.45);
-    fill: #22419a;
+    stroke: rgba(106, 135, 221, 0.45);
+    fill: rgb(132, 153, 214);
     stroke-width: 8px;
   }
   75% {
-    stroke: rgba(0, 84, 166, 0.4);
+    stroke: rgba(76, 91, 136, 0.4);
     fill: rgba(0, 84, 166, 1);
     stroke-width: 5px;
   }
   100% {
-    stroke: rgba(0, 84, 166, 0);
+    stroke: #0054a6;
     fill: #22419a;
-    stroke-width: 10px;
+    stroke-width: 0px;
   }
 }
 @keyframes arrow_anim_burn {

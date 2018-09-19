@@ -27,8 +27,8 @@ const baseData = {
     icon: 'VideoConferencingIcon',
     options: [{ label: 'HD', value: 'hd' }, { label: 'SD', value: 'sd' }],
     label: 'VIDEO CONFERENCING',
-    mbps: 4,
-    base: { sd: 1, hd: 4, uhd: 4 },
+    mbps: 2,
+    base: { sd: 0.5, hd: 2, uhd: 2 },
   },
   downloadingLargeFiles: {
     name: 'downloadingLargeFiles',
@@ -37,8 +37,8 @@ const baseData = {
     users: 1,
     icon: 'DownloadingLargeFilesIcon',
     label: 'DOWNLOADING LARGE FILES',
-    mbps: 50,
-    base: { sd: 50, hd: 50, uhd: 50 },
+    mbps: 2.5,
+    base: { sd: 2.5, hd: 2.5, uhd: 2.5 },
   },
   webAndEmail: {
     name: 'webAndEmail',
@@ -47,8 +47,8 @@ const baseData = {
     users: 1,
     icon: 'WebAndEmailIcon',
     label: 'WEB / EMAIL USAGE',
-    mbps: 2,
-    base: { sd: 1, hd: 1, uhd: 1 },
+    mbps: 0.25,
+    base: { sd: 0.25, hd: 0.25, uhd: 0.25 },
   },
   mediaFileSharing: {
     name: 'mediaFileSharing',
@@ -57,8 +57,8 @@ const baseData = {
     users: 1,
     icon: 'MediaFileSharingIcon',
     label: 'MEDIA / FILE SHARING',
-    mbps: 10,
-    base: { sd: 10, hd: 10, uhd: 10 },
+    mbps: 2,
+    base: { sd: 2, hd: 2, uhd: 2 },
   },
   uploadingLargeFiles: {
     name: 'uploadingLargeFiles',
@@ -67,8 +67,8 @@ const baseData = {
     users: 1,
     icon: 'UploadingLargeFilesIcon',
     label: 'UPLOADING LARGE FILES',
-    mbps: 50,
-    base: { sd: 50, hd: 50, uhd: 50 },
+    mbps: 2.5,
+    base: { sd: 2.5, hd: 2.5, uhd: 2.5 },
   },
   streamingMusic: {
     name: 'streamingMusic',
@@ -77,8 +77,8 @@ const baseData = {
     users: 1,
     icon: 'StreamingMusicIcon',
     label: 'STREAMING MUSIC',
-    mbps: 1,
-    base: { sd: 1, hd: 1, uhd: 1 },
+    mbps: 0.5,
+    base: { sd: 0.5, hd: 0.5, uhd: 0.5 },
   },
   voip: {
     name: 'voip',
@@ -87,8 +87,8 @@ const baseData = {
     users: 1,
     icon: 'VoipIcon',
     label: 'VOIP',
-    mbps: 1,
-    base: { sd: 1, hd: 1, uhd: 1 },
+    mbps: 0.1,
+    base: { sd: 0.1, hd: 0.1, uhd: 0.1 },
   },
   streamingVideo: {
     name: 'streamingVideo',
@@ -102,8 +102,8 @@ const baseData = {
       { label: 'SD', value: 'sd' },
     ],
     label: 'STREAMING VIDEO',
-    mbps: 5,
-    base: { sd: 3, hd: 5, uhd: 25 },
+    mbps: 1,
+    base: { sd: 1, hd: 5, uhd: 6 },
   },
 };
 

@@ -5,7 +5,7 @@ import Flex from '../Flex/Flex';
 
 const getSpeedType = value => {
   return value >= 0 && value < 15
-    ? 'Satellite or DSL'
+    ? 'T1, DSL or Cable'
     : value >= 15 && value < 25
       ? 'Cable'
       : value >= 25 && value < 50
@@ -69,9 +69,13 @@ const ProgressBar = ({
           </Flex>
         </Flex>
       </Flex>
-      <Flex grow={0} className={`orn_type_wrapper`}>
-        <h3 className={`orn_type_name`}>{getSpeedType(value)}</h3>
+      <Flex grow={0} justify="center" className="orn_recommended_service">
+        {' '}
+        <strong>Recommended Service</strong>{' '}
       </Flex>
+      <Flex.Y grow={0} className={`orn_type_wrapper`}>
+        <h3 className={`orn_type_name`}>{getSpeedType(value)}</h3>
+      </Flex.Y>
     </Flex.Y>
   );
 };
